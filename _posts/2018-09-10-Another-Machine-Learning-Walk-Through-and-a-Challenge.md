@@ -3,8 +3,6 @@ published: true
 ---
 ![](https://cdn-images-1.medium.com/max/1000/1*8ayKCPB_lYTNNxMLE2fkgA.jpeg)
 
-# Another Machine Learning Walk-Through and a Challenge
-
 ## Don’t just read about machine learning — practice it!
 
 After spending considerable time and money on courses, books, and videos, I’ve
@@ -196,10 +194,9 @@ distance traveled. One rough approximation of distance is the absolute value of
 the difference between the start and end latitudes and longitudes.
 
 ```{python}
-    # Absolute difference in latitude and longitude
-    data['abs_lat_diff'] = (data['dropoff_latitude'] - data['pickup_latitude']).abs()
-
-    data['abs_lon_diff'] = (data['dropoff_longitude'] - data['pickup_longitude']).abs()
+# Absolute difference in latitude and longitude
+data['abs_lat_diff'] = (data['dropoff_latitude'] - data['pickup_latitude']).abs()
+data['abs_lon_diff'] = (data['dropoff_longitude'] - data['pickup_longitude']).abs()
 ```
 
 Features don’t have to be complex to be useful! Below is a plot of these new
@@ -507,25 +504,8 @@ article and notebook have given you the start necessary to get out there and
 solve this problem or others. And, when you do need help, don’t hesitate to ask
 because the data science community is always supportive.
 
+*****
+
 As always, I welcome feedback, discussion, and constructive criticism. I can be
 reached on Twitter [@koehrsen_will](http://twitter.com/@koehrsen_will) or by
 commenting on this article.
-
-* [Machine
-Learning](https://towardsdatascience.com/tagged/machine-learning?source=post)
-* [Data Science](https://towardsdatascience.com/tagged/data-science?source=post)
-* [Python](https://towardsdatascience.com/tagged/python?source=post)
-* [Towards Data
-Science](https://towardsdatascience.com/tagged/towards-data-science?source=post)
-* [Education](https://towardsdatascience.com/tagged/education?source=post)
-
-From a quick cheer to a standing ovation, clap to show how much you enjoyed this
-story.
-
-### [William Koehrsen](https://towardsdatascience.com/@williamkoehrsen)
-
-Data Scientist at Feature Labs, Data Science Communicator
-
-### [Towards Data Science](https://towardsdatascience.com/?source=footer_card)
-
-Sharing concepts, ideas, and codes.
