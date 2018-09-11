@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ![](https://cdn-images-1.medium.com/max/1000/1*CvwzhoqLx3sSp9Uc07LMMg.jpeg)
 *([Source](https://www.pexels.com/photo/adult-book-business-cactus-297755/))*
@@ -288,6 +288,3 @@ productive writing habit.
 
 I welcome discussion on writing advice, comments, and constructive criticism. I
 can be reached on Twitter [@koehrsen_will](http://twitter.com/@koehrsen_will).
-
-
-
