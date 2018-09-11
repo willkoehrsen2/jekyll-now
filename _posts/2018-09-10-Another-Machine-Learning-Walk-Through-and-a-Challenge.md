@@ -60,8 +60,8 @@ no guarantees in machine learning.
 
 *****
 
-<span class="figcaption_hack">New York City Taxi Fare Prediction Challenge
-([Link](https://www.kaggle.com/c/new-york-city-taxi-fare-prediction))</span>
+![](https://cdn-images-1.medium.com/max/800/1*KjeHm6hEG9u2rtLNBDhiUQ.png)
+*New York City Taxi Fare Prediction Challenge ([Link](https://www.kaggle.com/c/new-york-city-taxi-fare-prediction))*
 
 #### Getting Started
 
@@ -71,7 +71,8 @@ relatively large at 55 million training rows, but simple to understand, with
 only 6 features. The `fare_amount` is the target, the continuous value we’ll
 train a model to predict:
 
-<span class="figcaption_hack">Training Data</span>
+![](https://cdn-images-1.medium.com/max/800/1*fedIO_9JF6nkOamV54Hswg.png)
+*Training Data*
 
 Throughout the notebook, I used only a sample of 5,000,000 rows to make the
 calculations quicker. My first recommendation thus is:
@@ -112,7 +113,8 @@ out data cleaning as part of the exploration process, correcting anomalies or
 data errors as I find them. For this problem, we can spot outliers by looking at
 statistics of the data using `df.describe()`.
 
-<span class="figcaption_hack">Statistical description of training data</span>
+![](https://cdn-images-1.medium.com/max/800/1*fo3nZmXRHQRCOVeQlGAygA.png)
+*Statistical description of training data*
 
 The anomalies in `passenger_count`, the coordinates, and the `fare_amount` were
 addressed through a combination of domain knowledge and looking at the
@@ -132,7 +134,9 @@ Once we clean the data, we can get to the fun part: visualization. Below is a
 plot of the pickup and dropoff locations on top of NYC colored by the binned
 fare (binning is a way of turning a continuous variable into a discrete one).
 
-<span class="figcaption_hack">Pickups and Dropoffs plotted on New York City</span>
+![](https://cdn-images-1.medium.com/max/600/1*pAwxGw7veApg8GN60SoTbQ.png)
+![](https://cdn-images-1.medium.com/max/600/1*Vy8jl9Q83pmupOj2DIHAtw.png)
+*Pickups and Dropoffs plotted on New York City*
 
 We also want to take a look at the target variable. Following is an [Empirical
 Cumulative Distribution Function
@@ -142,7 +146,8 @@ visualization choice than a
 histogram](https://www.andata.at/en/software-blog-reader/why-we-love-the-cdf-and-do-not-like-histograms-that-much.html)
 for one variable because it doesn’t have artifacts from binning.
 
-<span class="figcaption_hack">ECDF of Target</span>
+![](https://cdn-images-1.medium.com/max/800/1*uUeTHtwHkxmuLZJJvVhMUQ.png)
+*ECDF of Target*
 
 Besides being interesting to look at, plots can help us identify anomalies,
 relationships, or ideas for new features. In the maps, the color represents the
@@ -198,7 +203,8 @@ the difference between the start and end latitudes and longitudes.
 Features don’t have to be complex to be useful! Below is a plot of these new
 features colored by the binned fare.
 
-<span class="figcaption_hack">Absolute Longitude vs Absolute Latitude</span>
+![](https://cdn-images-1.medium.com/max/800/1*imuUlGXsEgw11eU2kFb-bg.png)
+*Absolute Longitude vs Absolute Latitude*
 
 What these features give us is a *relative *measure of distance because they are
 calculated in terms of latitude and longitude and not an actual metric. These
@@ -211,14 +217,16 @@ surface of the Earth (I’m told the Earth is a sphere) connecting the two point
 and clearly, taxis do not travel along straight lines. (See notebook for
 details).
 
-<span class="figcaption_hack">Haversine distance by Fare (binned)</span>
+![](https://cdn-images-1.medium.com/max/800/1*6YMdk1oov3hlBUg4vVxSQA.png)
+*Haversine distance by Fare (binned)*
 
 The other major source of features for this problem are time based. Given a date
 and time, there are numerous new variables we can extract. Constructing time
 features is a common task, and in the notebook I’ve included a useful function
 that builds a dozen features from a single timestamp.
 
-<span class="figcaption_hack">Fare amount colored by time of day</span>
+![](https://cdn-images-1.medium.com/max/800/1*5Rq8G-5WyOf3UdKOUyG7MA.png)
+*Fare amount colored by time of day*
 
 Although I built almost 20 features in this project, there are still more to be
 found. The tough part about feature engineering is you never know when you have
@@ -244,7 +252,8 @@ a simple linear regression. Moreover, if we look at the Pearson correlation of
 the features with the fare amount for this problem, we find several very strong
 linear relationships as shown below.
 
-<span class="figcaption_hack">Pearson Correlations of Features with Target</span>
+![](https://cdn-images-1.medium.com/max/800/1*1U_CSlHP83Z4FEafgcYdQg.png)
+*Pearson Correlations of Features with Target*
 
 Based on the strength of the linear relationships between some of the features
 and the target, we can expect a linear model to do reasonably well. While
@@ -290,7 +299,9 @@ random forest also generally has low variance meaning it can generalize to new
 data. For this problem, the random forest outperforms the linear regression,
 achieving a $4.20 validation RMSE on the same feature set.
 
-<span class="figcaption_hack">Test Set Prediction Distributions</span>
+![](https://cdn-images-1.medium.com/max/600/1*7bQo9bwncr6L5C22lsM4gQ.png)
+![](https://cdn-images-1.medium.com/max/600/1*IWzZXdrvSzO8sBImSTC62A.png)
+*Test Set Prediction Distributions*
 
 The reason a [random
 forest](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm)
@@ -361,7 +372,8 @@ I also tried out a number of different features and found the best model used
 only 12 of the 27 features. This makes sense because many of the features are
 highly correlated and hence are not necessary.
 
-<span class="figcaption_hack">Heatmap of Correlation of Subset of Features</span>
+![](https://cdn-images-1.medium.com/max/800/1*s_ScfgZ_4gB-8kcqJFa7OA.png)
+*Heatmap of Correlation of Subset of Features*
 
 After running the random search and choosing the features, the final random
 forest model achieved an RMSE of 3.38 which represents a percentage error of
@@ -400,7 +412,8 @@ technical details aren’t that important at the moment, but we can use the
 relative values to determine which features are considered relevant to the
 model.
 
-<span class="figcaption_hack">Feature Importances from training on all features</span>
+![](https://cdn-images-1.medium.com/max/800/1*xHzyDFupyRjOw_rXKl2bsg.png)
+*Feature Importances from training on all features*
 
 The most important feature by far is the Euclidean distance of the taxi ride,
 followed by the `pickup_Elapsed` , one of the time variables. Given that we made
@@ -414,7 +427,8 @@ error of the predictions, and we can examine the testing predictions for extreme
 values (there were several in the linear regression). Below is a plot of the
 validation predictions for the final model.
 
-<span class="figcaption_hack">Random Forest validation predictions and true values.</span>
+![](https://cdn-images-1.medium.com/max/800/1*aBqGZxThsoYIh4m15S04Cw.png)
+*Random Forest validation predictions and true values*
 
 Model interpretation is still a relatively new field, but there are some
 [promising methods](https://github.com/marcotcr/lime) for examining a model.
@@ -447,7 +461,7 @@ given you five different recommendations that should allow you to beat the best
 cross validation score I achieved in the notebook.
 
 ![](https://cdn-images-1.medium.com/max/800/1*NTYvogPl5U934116t8A1wQ.png)
-<span class="figcaption_hack">Final Model Results</span>
+*Final Model Results*
 
 This is certainly a friendly challenge, so don’t get frustrated, and don’t
 hesitate to reach out if you need help. All of these recommendations are
