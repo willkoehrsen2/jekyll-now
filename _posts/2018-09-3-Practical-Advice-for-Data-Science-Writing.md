@@ -4,8 +4,6 @@ published: true
 ![](https://cdn-images-1.medium.com/max/1000/1*CvwzhoqLx3sSp9Uc07LMMg.jpeg)
 *([Source](https://www.pexels.com/photo/adult-book-business-cactus-297755/))*
 
-# Practical Advice for Data Science Writing
-
 ## Useful tips for writing about your data science projects
 
 Writing is something that everyone wants to do more of, yet we often find it
