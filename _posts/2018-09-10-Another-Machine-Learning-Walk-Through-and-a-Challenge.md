@@ -27,6 +27,8 @@ download required — or [accessed on
 GitHub](https://github.com/WillKoehrsen/taxi-fare/blob/master/A Walkthrough and
 a Challenge.ipynb).
 
+<!--more-->
+
 *****
 
 ### Problem Statement
