@@ -34,6 +34,8 @@ ways in which I’ve implemented them to improve my writing. Over the course of
 mistakes, and, rather than making these same errors yourself, you can learn from
 my experiences.
 
+<!--more-->
+
 *****
 
 ### Perfection is Overrated: Aim for 90%
