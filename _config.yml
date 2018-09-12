@@ -57,9 +57,11 @@ excerpt_separator: <!--more-->
 
 prose:
   metadata:
-    "_posts/blog": |
-      title:    "Title of your article"
-      abstract: "Abstract"
+    _posts:
+      - name: "title"
+        field:
+          element: "text"
+          label: "title"
 
 permalink: /:title/
 
