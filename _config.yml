@@ -55,6 +55,12 @@ baseurl: ""
 
 excerpt_separator: <!--more-->
 
+prose:
+  metadata:
+    "_posts/blog": |
+      title:    "Title of your article"
+      abstract: "Abstract"
+
 permalink: /:title/
 
 # The release of Jekyll Now that you're using
