@@ -229,6 +229,8 @@ words, don’t let optimization of a work routine get in the way of doing work.
 ![](https://cdn-images-1.medium.com/max/800/1*yFq-4uYKuRkUstxIoO-uog.png)
 *Choose a strategy and stick with it! ([Source](https://xkcd.com/1445/))*
 
+*****
+
 ### Where to Get Your Ideas: Read Widely and Deeply
 
 [Great ideas don’t emerge on their
