@@ -196,11 +196,13 @@ distance, we’ll want to use the start and stop points to try and find the
 distance traveled. One rough approximation of distance is the absolute value of
 the difference between the start and end latitudes and longitudes.
 
+
 ```{python}
 # Absolute difference in latitude and longitude
 data['abs_lat_diff'] = (data['dropoff_latitude'] - data['pickup_latitude']).abs()
 data['abs_lon_diff'] = (data['dropoff_longitude'] - data['pickup_longitude']).abs()
 ```
+
 
 Features don’t have to be complex to be useful! Below is a plot of these new
 features colored by the binned fare.
