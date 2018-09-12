@@ -2,6 +2,12 @@
 published: true
 title: Practical Advice for Data Science Writing
 date: 'September 3, 2018'
+categories:
+  - blog
+  - travel
+tags:
+  - hot
+  - summer
 ---
 ![](https://cdn-images-1.medium.com/max/1000/1*CvwzhoqLx3sSp9Uc07LMMg.jpeg)
 *([Source](https://www.pexels.com/photo/adult-book-business-cactus-297755/))*
