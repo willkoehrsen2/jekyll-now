@@ -62,10 +62,6 @@ prose:
         field:
           element: "text"
           label: "title"
-      - name: "author"
-      	field:
-          element: "text"
-          label: "author"
 
 permalink: /:title/
 
