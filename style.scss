@@ -33,7 +33,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
   color: $darkerGray;
-  font-weight: bold;
+  font-weight: 300;
 
   line-height: 1.7;
   margin: 1em 0 15px;
@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 28px;
   a {
     color: inherit;
   }
@@ -161,7 +161,7 @@ img + em {
 //
 
 .wrapper-masthead {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .masthead {
@@ -192,12 +192,16 @@ img + em {
 
 .site-info {
   float: left;
-
+  transform: translateY(-5px);
   @include mobile {
     float: none;
     display: block;
     margin: 0 auto;
   }
+}
+
+.medium-link {
+	margin: 5px;
 }
 
 .site-name {
@@ -211,7 +215,7 @@ img + em {
 }
 
 .site-description {
-  margin: -5px 0 0 0;
+  margin: 2px 0 0 0;
   color: $gray;
   font-size: 16px;
 
@@ -223,7 +227,7 @@ img + em {
 nav {
   horizontal-alignment: right;
   float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
+  margin-top: 10px; // @TODO: Vertically middle align
   font-family: $helveticaNeue;
   font-size: 18px;
 
@@ -235,11 +239,12 @@ nav {
   }
 
   a {
-    margin-left: 20px;
+    margin-left: 4px;
     color: $darkGray;
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
+	font-size: 24px;
 
     @include mobile {
       margin: 0 10px;
