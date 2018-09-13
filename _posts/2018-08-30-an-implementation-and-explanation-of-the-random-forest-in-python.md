@@ -27,6 +27,8 @@ Notebook on
 GitHub](https://github.com/WillKoehrsen/Machine-Learning-Projects/blob/master/Random
 Forest Tutorial.ipynb).
 
+<!--more-->
+
 **Note:** this article [originally appeared](https://enlight.nyc/random-forest)
 on [enlight](https://enlight.nyc/), a community-driven, open-source platform
 with tutorials for those looking to study machine learning.
