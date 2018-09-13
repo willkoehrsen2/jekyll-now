@@ -514,4 +514,4 @@ article was originally published on [enlight](https://enlight.nyc/), an
 open-source community for studying machine learning. I would like to thank
 enlight and also [repl.it ](http://repl.it/)for hosting the code in the article.
 
-<link rel="alternate" type="application/json+oembed" href="https://repl.it/data/oembed?url=https%3A%2F%2Frepl.it%2F%40WillKoehrsen%2FRandom-Forest-Tutorial" title="repl.it - select language" class="next-head"/>
+https://repl.it/data/oembed?url=https%3A%2F%2Frepl.it%2F%40WillKoehrsen%2FRandom-Forest-Tutorial
