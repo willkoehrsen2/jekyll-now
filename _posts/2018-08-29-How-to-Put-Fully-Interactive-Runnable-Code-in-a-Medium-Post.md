@@ -2,8 +2,6 @@
 published: true
 title: 'How to Put Fully Interactive, Runnable Code in a Medium Post'
 ---
-* * *
-
 ![](https://cdn-images-1.medium.com/max/2000/1*JTdMap3RCYkwPNxtoF8u-w.jpeg)
 *([Source](https://www.pexels.com/photo/blur-close-up-code-computer-546819/))*
 
@@ -18,7 +16,6 @@ title: 'How to Put Fully Interactive, Runnable Code in a Medium Post'
     <iframe src="https://repl.it/@WillKoehrsen/basicpython?lite=true">
     </iframe>
 </div>
-
 *Interactive code. In a Medium article! (from [repl.it](http://repl.it)).*
 
 Feel free to play around with the code above. This is a simple example, but you can create complex scripts for readers to run in many languages.
