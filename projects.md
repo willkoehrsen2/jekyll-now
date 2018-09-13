@@ -1,5 +1,5 @@
 ---
-title: projects
+title: Projects
 published: true
 layout: page
 permalink: /projects/
