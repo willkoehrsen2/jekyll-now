@@ -409,7 +409,7 @@ figure out what predictor variables the random forest considers most important.
 The feature importances can be extracted from a trained random forest and put
 into a Pandas dataframe as follows:
 
-https://gist.github.com/WillKoehrsen/475f57ab3c61ea46db0833c6708f1702.js
+<script src="https://gist.github.com/WillKoehrsen/475f57ab3c61ea46db0833c6708f1702.js" charset="utf-8"></script>
 
 Feature importances can give us insight into a problem by telling us what
 variables are the most discerning between classes. For example, here `DIFFWALK,
@@ -514,4 +514,4 @@ article was originally published on [enlight](https://enlight.nyc/), an
 open-source community for studying machine learning. I would like to thank
 enlight and also [repl.it ](http://repl.it/)for hosting the code in the article.
 
-https://repl.it/data/oembed?url=https%3A%2F%2Frepl.it%2F%40WillKoehrsen%2FRandom-Forest-Tutorial
+<iframe width="560" height="315" src="https://repl.it/data/oembed?url=https%3A%2F%2Frepl.it%2F%40WillKoehrsen%2FRandom-Forest-Tutorial" frameborder="0"></iframe>
