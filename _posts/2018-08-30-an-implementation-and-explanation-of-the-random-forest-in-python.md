@@ -516,6 +516,6 @@ enlight and also [repl.it ](http://repl.it/)for hosting the code in the article.
 
 
 <div class="video-container">
-    <iframe src="https://repl.it/@WillKoehrsen/Random-Forest-Tutorial" height="315" width="560" allowfullscreen="" frameborder="0">
+    <iframe src="https://repl.it/data/oembed?url=https%3A%2F%2Frepl.it%2F%40WillKoehrsen%2FRandom-Forest-Tutorial" height="315" width="560" allowfullscreen="" frameborder="0">
     </iframe>
 </div>
