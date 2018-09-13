@@ -1,8 +1,3 @@
----
-layout: page
-permalink: /projects/
----
-
 ## Another Machine Learning Walkthrough and a Challenge
 
 ### Summary
