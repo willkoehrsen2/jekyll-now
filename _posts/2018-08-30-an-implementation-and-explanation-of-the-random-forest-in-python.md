@@ -514,4 +514,4 @@ article was originally published on [enlight](https://enlight.nyc/), an
 open-source community for studying machine learning. I would like to thank
 enlight and also [repl.it ](http://repl.it/)for hosting the code in the article.
 
-<iframe width="560" height="315" src="https://repl.it/data/oembed?url=https%3A%2F%2Frepl.it%2F%40WillKoehrsen%2FRandom-Forest-Tutorial" frameborder="0"></iframe>
+<iframe width="560" height="315" src="https://repl.it/@WillKoehrsen/Random-Forest-Tutorial" frameborder="0"></iframe>
