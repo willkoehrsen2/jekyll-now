@@ -196,7 +196,7 @@ img + em {
 }
 
 .site-info {
-  float: left;
+  float: none;
   transform: translateY(-5px);
   @include mobile {
     float: none;
