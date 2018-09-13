@@ -62,6 +62,10 @@ prose:
         field:
           element: "text"
           label: "title"
+          
+collections:
+   projects:
+      output: true
 
 permalink: /:title/
 
