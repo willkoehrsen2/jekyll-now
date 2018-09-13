@@ -29,7 +29,7 @@ a Challenge.ipynb).
 
 The [New York City Taxi Fare prediction
 challenge](https://www.kaggle.com/c/new-york-city-taxi-fare-prediction),
-currently running on Kaggle, is a *supervised regression *machine learning task.
+currently running on Kaggle, is a *supervised regression* machine learning task.
 Given pickup and dropoff locations, the pickup timestamp, and the passenger
 count, the objective is to predict the fare of the taxi ride. Like most [Kaggle
 competitions](https://www.kaggle.com/c/), this problem isn’t 100% reflective of
@@ -56,7 +56,7 @@ revisit our past decisions or take a new approach.
 
 Throughout the article, I’ll point out a number of areas in which I think an
 enterprising data scientist — you — could improve on my solution. I have labeled
-these *potential improvements *because as a largely empirical field, there are
+these *potential improvements* because as a largely empirical field, there are
 no guarantees in machine learning.
 
 *****
@@ -197,7 +197,7 @@ distance traveled. One rough approximation of distance is the absolute value of
 the difference between the start and end latitudes and longitudes.
 
 
-```{python}
+```
 # Absolute difference in latitude and longitude
 data['abs_lat_diff'] = (data['dropoff_latitude'] - data['pickup_latitude']).abs()
 data['abs_lon_diff'] = (data['dropoff_longitude'] - data['pickup_longitude']).abs()
@@ -210,7 +210,7 @@ features colored by the binned fare.
 ![](https://cdn-images-1.medium.com/max/800/1*imuUlGXsEgw11eU2kFb-bg.png)
 *Absolute Longitude vs Absolute Latitude*
 
-What these features give us is a *relative *measure of distance because they are
+What these features give us is a *relative* measure of distance because they are
 calculated in terms of latitude and longitude and not an actual metric. These
 features are useful for comparison, but if we want a measurement in kilometers,
 we can apply the [Haversine
@@ -236,8 +236,7 @@ Although I built almost 20 features in this project, there are still more to be
 found. The tough part about feature engineering is you never know when you have
 fully exhausted all the options. My next recommendation is:
 
-* **Potential Improvement 3: Construct more features or apply feature selection to
-the existing features to find an optimal set.**
+* **Potential Improvement 3: Construct more features or apply feature selection to the existing features to find an optimal set.**
 
 Feature engineering also involves problem expertise or applying [algorithms that
 automatically build features for you](https://www.featuretools.com/demos). After
@@ -368,9 +367,11 @@ combination of hyperparameters 3 times!
 
     The best parameters were 
 
-    {'n_estimators': 41, 'min_samples_split': 2, 'max_leaf_nodes': 49, 'max_features': 0.5, 'max_depth': 22, 'bootstrap': True}
+    {'n_estimators': 41, 'min_samples_split': 2, 
+    'max_leaf_nodes': 49, 'max_features': 0.5, 
+    'max_depth': 22, 'bootstrap': True}
 
-    with a negative mae of -2.0216735083205952
+    with a negative mae of -2.0216
 
 I also tried out a number of different features and found the best model used
 only 12 of the 27 features. This makes sense because many of the features are
@@ -437,7 +438,7 @@ validation predictions for the final model.
 Model interpretation is still a relatively new field, but there are some
 [promising methods](https://github.com/marcotcr/lime) for examining a model.
 While the primary goal of machine learning is making accurate predictions on new
-data, it’s also equally important to know *why *the model is accurate and if it
+data, it’s also equally important to know *why* the model is accurate and if it
 can teach us anything about the problem.
 
 *****
@@ -451,7 +452,7 @@ network or a gradient boosting machine. I haven’t implemented these in the
 notebook, but I am working on them. I’ll let you try first (I can’t give away
 all the answers!).
 
-* **Potential Improvement 5: try more complex models such as the **[gradient
+* **Potential Improvement 5: try more complex models such as the** [gradient
 boosting
 machine](https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d)
 
