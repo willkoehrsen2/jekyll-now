@@ -3,7 +3,7 @@ published: true
 title: An Implementation and Explanation of the Random Forest in Python
 ---
 ![](https://cdn-images-1.medium.com/max/1000/1*VQBcSuSfFqSePJaEC0T5yg.jpeg)
-*([Source](https://www.pexels.![](https://cdn-images-1.medium.com/max/1000/1*VQBcSuSfFqSePJaEC0T5yg.jpeg)*
+*([Source](https://www.pexels.com/photo/ball-ball-shaped-blur-daylight-269057/).*
 
 ## A guide for using and understanding the random forest by building up from a single decision tree.
 
