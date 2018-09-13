@@ -1,3 +1,7 @@
+---
+title: projects
+---
+
 ## Another Machine Learning Walkthrough and a Challenge
 
 ### Summary
