@@ -186,9 +186,10 @@ UMAP | PCA
 
 <br></br>
 
-ICA  | TSNE
+ICA | TSNE
 :---:|:---:
 ![](https://cdn-images-1.medium.com/max/1200/1*sD7QHjfrefVTduqvYKMM9Q.png) |  ![](https://cdn-images-1.medium.com/max/1200/1*Fv9oDnsirOMJIUPdXZ8Ecw.png) 
+
 <center>Dimension Reduction Visualizations</center>
 
 None of the methods cleanly separates the data based on the label which follows the [findings of other data scientists](https://www.kaggle.com/mlisovyi/cluster-analysis-tsne-mds-isomap). As we discovered earlier, it may be that this problem is difficult considering the data to which we have access. Although these graphs cannot be used to say whether or not we can solve a problem, if there is a clean separation, then it indicates that there is _something_ in the data that would allow a model to easily discern each class.
