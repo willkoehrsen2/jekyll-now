@@ -1,6 +1,6 @@
 ---
 published: false
-title: "A “Data Science for Good” Machine Learning Project Walk-Through in Python: Part\_Two"
+title: "A Data Science for Good Machine Learning Project Walk-Through in Python: Part\_Two"
 ---
 ![](https://cdn-images-1.medium.com/max/2000/1*nGFXkodXfbOtPr5LspUgGw.jpeg)
 *([Source](https://github.com/dconnolly/chromecast-backgrounds))*
