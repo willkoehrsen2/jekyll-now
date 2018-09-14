@@ -15,6 +15,8 @@ In this article and [the sequel](https://medium.com/@williamkoehrsen/a-data-scie
 
 The full code is available as a [Jupyter Notebook both on Kaggle](https://www.kaggle.com/willkoehrsen/a-complete-introduction-and-walkthrough) (where it can be run in the browser with no downloads required) and [on GitHub](https://github.com/WillKoehrsen/data-science-for-good/blob/master/costa-rican-poverty/A%20Complete%20Walkthrough.ipynb). This is an active Kaggle competition and a great project to get started with machine learning or to work on some new skills.
 
+<!--more-->
+
 * * *
 
 ### Problem and Approach
