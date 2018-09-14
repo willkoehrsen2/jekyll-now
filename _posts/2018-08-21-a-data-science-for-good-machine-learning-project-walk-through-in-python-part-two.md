@@ -18,6 +18,8 @@ In this article, we’ll continue with our pipeline for predicting poverty in Co
 
 The full code is available as a [Jupyter Notebook both on Kaggle](https://www.kaggle.com/willkoehrsen/a-complete-introduction-and-walkthrough) (where it can be run in the browser with no downloads required) and [on GitHub](https://github.com/WillKoehrsen/data-science-for-good/blob/master/costa-rican-poverty/A%20Complete%20Walkthrough.ipynb). This is an active Kaggle competition and a great project to get started with machine learning or to work on some new skills.
 
+<!--more-->
+
 * * *
 
 ### Model Optimization
