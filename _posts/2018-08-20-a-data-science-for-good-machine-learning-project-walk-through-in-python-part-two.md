@@ -184,7 +184,6 @@ UMAP | PCA
 :---:|:---:
 ![](https://cdn-images-1.medium.com/max/1200/1*F4F_vnQXiB5RjGNZUOWwug.png) |  ![](https://cdn-images-1.medium.com/max/1200/1*pkQg_N4T-ersZ86ePFt20g.png)
 
-<br></br>
 
 ICA | TSNE
 :---:|:---:
