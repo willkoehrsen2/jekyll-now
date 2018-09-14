@@ -190,7 +190,7 @@ UMAP | PCA
 ICA | TSNE
 :---:|:---:
 ![](https://cdn-images-1.medium.com/max/1200/1*sD7QHjfrefVTduqvYKMM9Q.png) |  ![](https://cdn-images-1.medium.com/max/1200/1*Fv9oDnsirOMJIUPdXZ8Ecw.png) 
-<p *Dimension Reduction Visualizations*
+<p style="text-align: center;">*Dimension Reduction Visualizations*</p>
 
 text {style=text-align:center}
 
