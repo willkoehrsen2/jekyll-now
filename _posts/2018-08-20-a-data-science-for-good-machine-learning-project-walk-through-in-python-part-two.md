@@ -149,7 +149,7 @@ Recursive feature elimination is simple to use with [Scikit-Learn’s RFECV meth
 
 <script src="https://gist.github.com/WillKoehrsen/27d12fba73d729cd3c50b20442925087.js" charset="utf-8">
 </script>
-*Recursive Feature Elimination code.*
+<center>Recursive Feature Elimination code.</center>
 
 While I’ve used feature importances for selection before, I’d never implemented the Recursive Feature Elimination method, and as usual, was pleasantly surprised at how easy this was to do in Python. The RFECV method selected 58 out of around 190 features based on the cross validation scores:
 
@@ -174,7 +174,8 @@ A new entry on the dimension reduction scene is [UMAP: Uniform Manifold Approxim
 I wanted to try these methods for both dimension reduction for visualization, and to add the reduced components as _additional features._ While this use case might not be typical, there’s no harm in experimenting! Below shows the code for using UMAP to create embeddings of both the train and testing data.
 
 <script src="https://gist.github.com/WillKoehrsen/3a10f1e28562f055fe05194afd89dc6a.js" charset="utf-8">
-</script>*Uniform Manifold Approximation and Embedding Code.*
+</script>
+<center>Uniform Manifold Approximation and Embedding Code.</center>
 
 The application of the other three methods is exactly the same (except TSNE which cannot be used to `transform` the testing data). After completing the transformations, we can visualize the reduced training features in 3 dimensions, with the points colored by the value of the target:
 
@@ -183,14 +184,11 @@ UMAP | PCA
 :---:|:---:
 ![](https://cdn-images-1.medium.com/max/1200/1*F4F_vnQXiB5RjGNZUOWwug.png) |  ![](https://cdn-images-1.medium.com/max/1200/1*pkQg_N4T-ersZ86ePFt20g.png)
 
-<br></br>
+<br>
 
 ICA | TSNE
 :---:|:---:
 ![](https://cdn-images-1.medium.com/max/1200/1*sD7QHjfrefVTduqvYKMM9Q.png) |  ![](https://cdn-images-1.medium.com/max/1200/1*Fv9oDnsirOMJIUPdXZ8Ecw.png) 
-
-<p style="text-align: center;">Dimension Reduction Visualizations</p>
-
 <center>Dimension Reduction Visualizations</center>
 
 None of the methods cleanly separates the data based on the label which follows the [findings of other data scientists](https://www.kaggle.com/mlisovyi/cluster-analysis-tsne-mds-isomap). As we discovered earlier, it may be that this problem is difficult considering the data to which we have access. Although these graphs cannot be used to say whether or not we can solve a problem, if there is a clean separation, then it indicates that there is _something_ in the data that would allow a model to easily discern each class.
