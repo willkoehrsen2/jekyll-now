@@ -1,8 +1,9 @@
-* * *
-
-![](https://cdn-images-1.medium.com/max/2000/1*kXJHvMq_yced4cTeY43IRA.jpeg)([Source](https://github.com/dconnolly/chromecast-backgrounds))
-
-# A “Data Science for Good“ Machine Learning Project Walk-Through in Python: Part One
+---
+published: false
+title: "A Data Science for Good Machine Learning Project Walk-Through in Python: Part\_One"
+---
+![](https://cdn-images-1.medium.com/max/2000/1*kXJHvMq_yced4cTeY43IRA.jpeg)
+*([Source](https://github.com/dconnolly/chromecast-backgrounds))*
 
 ## Solving a complete machine learning problem for societal benefit
 
@@ -20,7 +21,8 @@ The full code is available as a [Jupyter Notebook both on Kaggle](https://www.ka
 
 The [Costa Rican Household Poverty Level Prediction](https://www.kaggle.com/c/costa-rican-household-poverty-prediction) challenge is a data science for good machine learning competition currently running on Kaggle. The objective is to use individual and household socio-economic indicators to predict poverty on a household basis. IDB, the [Inter-American Development Bank](https://www.iadb.org/en), developed the problem and provided the data with the goal of improving upon traditional methods for identifying families at need of aid.
 
-![](https://cdn-images-1.medium.com/max/1600/1*VsLI-s-dPh45a_IK7e26gw.png)The Costa Rican Poverty Prediction contest is currently running [on Kaggle](https://www.kaggle.com/c/costa-rican-household-poverty-prediction).
+![](https://cdn-images-1.medium.com/max/1600/1*VsLI-s-dPh45a_IK7e26gw.png)
+*The Costa Rican Poverty Prediction contest is currently running [on Kaggle](https://www.kaggle.com/c/costa-rican-household-poverty-prediction).*
 
 The poverty labels fall into four levels making this a _supervised multi-class classification_ problem:
 
@@ -64,7 +66,8 @@ Part of data understanding also means digging into the [data definitions](https:
 
 For example, we can read that `meaneduc` is the average amount of education in the family, and then we can plot it distributed by the value of the label to see if it has any noticeable differences between the poverty level .
 
-![](https://cdn-images-1.medium.com/max/1600/1*g1CS3dmmcQ_splO-Ue6gTQ.png)Average schooling in family by target (poverty level).
+![](https://cdn-images-1.medium.com/max/1600/1*g1CS3dmmcQ_splO-Ue6gTQ.png)
+*Average schooling in family by target (poverty level).*
 
 This shows that families the least at risk for poverty — non-vulnerable — tend to have higher average education levels than those most at risk. Later in feature engineering, we can use this information by building features from the education since it seems to show a different between the target labels.
 
@@ -72,7 +75,8 @@ There are a total of 143 columns (features), and while for a real application, y
 
 Another point to establish from the problem and data understanding stage is how we want to structure our training data. In this problem, we’re given a single table of data where each row represents an _individual_ and the columns are the features. If we read the problem definition, we are told to make predictions for each _household_ which means that our final training dataframe (and also testing) should have one row for each house. This point informs our entire pipeline, so it’s crucial to grasp at the outset.
 
-![](https://cdn-images-1.medium.com/max/1600/1*3uKkYJNdWdR-X6fWACHszg.png)A snapshot of the data where each row is one individual.
+![](https://cdn-images-1.medium.com/max/1600/1*3uKkYJNdWdR-X6fWACHszg.png)
+*A snapshot of the data where each row is one individual.*
 
 #### Determine the Metric
 
@@ -80,10 +84,10 @@ Finally, we want to make sure we understanding the labels and the metric for the
 
 Once you know the metric, figure out how to calculate it with whatever tool you are using. For Scikit-Learn and the Macro F1 score, the code is:
 
-<pre name="573f" id="573f" class="graf graf--pre graf-after--p">from sklearn.metrics import f1_score</pre>
-
-<pre name="66aa" id="66aa" class="graf graf--pre graf-after--pre"># Code to compute metric on predictions
-score = f1_score(y_true, y_prediction, average = 'macro')</pre>
+	from sklearn.metrics import f1_score
+    
+    # Code to compute metric on predictions
+    score = f1_score(y_true, y_prediction, average = 'macro')
 
 Knowing the metric allows us to assess our predictions in cross validation and using a hold-out testing set, so we know what effect, if any, our choices have on performance. For this competition, we are given the metric to use, but in a real-world situation, we’d have to choose an [appropriate measure](https://medium.com/usf-msds/choosing-the-right-metric-for-evaluating-machine-learning-models-part-2-86d5649a5428) ourselves.
 
@@ -95,7 +99,8 @@ Data exploration, also called [Exploratory Data Analysis (EDA)](https://en.wikip
 
 For an easy first step of data exploration, we can visualize the distribution of the labels for the training data (we are not given the testing labels).
 
-![](https://cdn-images-1.medium.com/max/1600/1*7OA-5PkR3OvouBdYzPPFHw.png)Distribution of training labels.
+![](https://cdn-images-1.medium.com/max/1600/1*7OA-5PkR3OvouBdYzPPFHw.png)
+*Distribution of training labels.*
 
 Right away this tells us we have an imbalanced classification problem, which can make it difficult for machine learning models to learn the underrepresented classes. Many algorithms have ways to try and deal with this, such as setting `class_weight = "balanced"` in the [Scikit-Learn random forest classifier](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) although they don’t work perfectly. We also want to make sure to use [_stratified sampling_](https://stats.stackexchange.com/a/250742/157316) with cross validation when we have an imbalanced classification problem to get the same balance of labels in each fold.
 
@@ -113,18 +118,21 @@ I’m using _statistical type_ to mean what the data represents — for exam
 
 If we look at the integer columns for this problem, we can see that most of them represent Booleans because there are only two possible values:
 
-![](https://cdn-images-1.medium.com/max/1600/1*UgQ7pnivBn6_tz3O2LKEVg.png)Integer columns in data.
+![](https://cdn-images-1.medium.com/max/1600/1*UgQ7pnivBn6_tz3O2LKEVg.png)
+*Integer columns in data.*
 
 Going through the object columns, we are presented with a puzzle: 2 of the columns are Id variables (stored as strings), but 3 look to be numeric values.
 
-<pre name="3a9b" id="3a9b" class="graf graf--pre graf-after--p"># Train is pandas dataframe of training data
-train.select_dtypes('object').head()</pre>
+	# Train is pandas dataframe of training data
+    train.select_dtypes('object').head()
 
-![](https://cdn-images-1.medium.com/max/1600/1*e7vk6jChwtnRMCmQNHRKkA.png)Object columns in original data.
+![](https://cdn-images-1.medium.com/max/1600/1*e7vk6jChwtnRMCmQNHRKkA.png)
+*Object columns in original data.*
 
 This is where our earlier _data understanding_ comes into play. For these three columns, some entries are “yes” and some are “no” while the rest are floats. We did our background research and thus know that a “yes” means 1 and a “no” means 0\. Using this information, we can correct the values and then visualize the variable distributions colored by the label.
 
-![](https://cdn-images-1.medium.com/max/1600/1*Z9eW6mgDfNoYOX_IYl5_iA.png)Distribution of corrected variables by the target label.
+![](https://cdn-images-1.medium.com/max/1600/1*Z9eW6mgDfNoYOX_IYl5_iA.png)
+*Distribution of corrected variables by the target label.*
 
 This is a great example of data exploration and cleaning going hand in hand. We find something incorrect with the data, fix it, and then explore the data to make sure our correction was appropriate.
 
@@ -132,11 +140,15 @@ This is a great example of data exploration and cleaning going hand in hand. We 
 
 A critical data cleaning operation for this data is handling missing values. To calculate the total and percent of missing values is simple in Pandas:
 
-<iframe width="700" height="250" src="/media/46317f8c9f8e80a443305fe8ea55dfb3?postId=1977dd701dbc" data-media-id="46317f8c9f8e80a443305fe8ea55dfb3" allowfullscreen="" frameborder="0"></iframe>![](https://cdn-images-1.medium.com/max/1600/1*gJU0IU-XA7PFIQbPipj7eg.png)Missing values in data.
+<script src="https://gist.github.com/WillKoehrsen/8e3c0d509a3d905e58397419a99b5b14.js" charset="utf-8"></script>
+
+![](https://cdn-images-1.medium.com/max/800/1*gJU0IU-XA7PFIQbPipj7eg.png)
+*Missing Values in Data*
 
 In some cases there are reasons for missing values: the `v2a1` column represents monthly rent and many of the missing values are because the household owns the home. To figure this out, we can subset the data to houses _missing the rent payment_ and then plot the `tipo_` variables (I’m not sure where these column names come from) which show home ownership.
 
-![](https://cdn-images-1.medium.com/max/1600/1*ghGkbiDJmGcmuC8VgjHaYA.png)Home ownership status for those households with no rent payments.
+![](https://cdn-images-1.medium.com/max/1600/1*ghGkbiDJmGcmuC8VgjHaYA.png)
+*Home ownership status for those households with no rent payments.*
 
 Based on the plot, the solution is to fill in the missing rent payments for households that own their house with 0 and leave the others to be imputed. We also add a boolean column that indicates if the rent payment was missing.
 
@@ -156,33 +168,36 @@ In this problem, our primary objective for feature engineering is to aggregate a
 
 Fortunately, once we have separated out the individual data (into the `ind` dataframe), doing these aggregations is literally one line in Pandas (with `idhogar` the household identifier used for grouping):
 
-<pre name="362a" id="362a" class="graf graf--pre graf-after--p"># Aggregate individual data for each household
-ind_agg = ind.groupby('idhogar').agg(['min', 'max', 'mean', 'sum'])</pre>
+	# Aggregate individual data for each household
+    ind_agg = ind.groupby('idhogar').agg(['min', 'max', 'mean', 'sum'])
 
 After renaming the columns, we have a lot of features that look like:
 
-![](https://cdn-images-1.medium.com/max/1600/1*OfCP0dnA4SaoD-K2VMWOvg.png)Features produced by aggregation of individual data.
+![](https://cdn-images-1.medium.com/max/1600/1*OfCP0dnA4SaoD-K2VMWOvg.png)
+*Features produced by aggregation of individual data.*
 
 The benefit of this method is that it quickly creates many features. One of the drawbacks is that many of these features might not be useful or are highly correlated ([called collinear](https://en.wikipedia.org/wiki/Collinearity#Usage_in_statistics_and_econometrics)) which is why we need to use feature selection.
 
 An alternative method to aggregations is to [calculate features one at a time using domain knowledge](https://medium.com/mindorks/what-is-feature-engineering-for-machine-learning-d8ba3158d97a) based on what features might be useful for predicting poverty. For example, in the household data, we create a feature called `warning` which adds up a number of household “warning signs” ( `house` is a dataframe of the household variables):
 
-<pre name="f53e" id="f53e" class="graf graf--pre graf-after--p"># No toilet, no electricity, no floor, no water service, no ceiling
-house['warning'] = 1 * (house['sanitario1'] + 
-                         (house['elec'] == 0) + 
-                         house['pisonotiene'] + 
-                         house['abastaguano'] + 
-                         (house['cielorazo'] == 0))</pre>
+    # No toilet, no electricity, no floor, no water service, no ceiling
+    house['warning'] = 1 * (house['sanitario1'] + 
+                           (house['elec'] == 0) + 
+                           house['pisonotiene'] + 
+                           house['abastaguano'] + 
+                           (house['cielorazo'] == 0))
 
-![](https://cdn-images-1.medium.com/max/1600/1*KMTVdsC5gH-a0TQYHxphVA.png)Violinplot of Target by Warning Value.
+
+![](https://cdn-images-1.medium.com/max/1600/1*KMTVdsC5gH-a0TQYHxphVA.png)
+*Violinplot of Target by Warning Value.*
 
 We can also calculate “per capita” features by dividing one value by another ( `tamviv` is the number of household members):
 
-<pre name="a282" id="a282" class="graf graf--pre graf-after--p"># Per capita features for household data
-house['phones-per-capita'] = house['qmobilephone'] / house['tamviv']
-house['tablets-per-capita'] = house['v18q1'] / house['tamviv']
-house['rooms-per-capita'] = house['rooms'] / house['tamviv']
-house['rent-per-capita'] = house['v2a1'] / house['tamviv']</pre>
+	# Per capita features for household data
+    house['phones-per-capita'] = house['qmobilephone'] / house['tamviv']
+    house['tablets-per-capita'] = house['v18q1'] / house['tamviv']
+    house['rooms-per-capita'] = house['rooms'] / house['tamviv']
+    house['rent-per-capita'] = house['v2a1'] / house['tamviv']
 
 When it comes to [manual vs automated feature engineering](https://github.com/Featuretools/Automated-Manual-Comparison), I think the optimal answer is a blend of both. As humans, we are limited in the features we build both by creativity — there are only so many features we can think to make — and time — there is only so much time for us to write the code. We can make a few informed features like those above by hand, but where automated feature engineering excels is when doing aggregations that can automatically build on top of other features.
 
@@ -198,7 +213,8 @@ One method is by determining correlations between features. Two variables that a
 
 The tricky part about removing correlated features is determining the threshold of correlation for saying that two variables are too correlated. I generally try to stay conservative, using a correlation coefficient in the 0.95 or above range. Once we decide on a threshold, we use the below code to remove one out of every pair of variables with a correlation above this value:
 
-<iframe width="700" height="250" src="/media/750522fcb6d5c64d98f2cf90ce5fdbae?postId=1977dd701dbc" data-media-id="750522fcb6d5c64d98f2cf90ce5fdbae" allowfullscreen="" frameborder="0"></iframe>
+<script src="https://gist.github.com/WillKoehrsen/cfe5955a44f03a972e93734ca5431c5a.js" charset="utf-8"></script>
+<center>Code for Finding and Removing Collinear Columns</center>
 
 We are only removing features that are _correlated with one another_. We want features that are correlated _with the target_(although a correlation of greater than 0.95 with the label would be too good to be true)!
 
@@ -206,15 +222,21 @@ There are many [methods for feature selection](https://machinelearningmastery.co
 
 After feature selection, we can do some exploration of our final set of variables, including making a correlation heatmap and a [pairsplot](https://towardsdatascience.com/visualizing-data-with-pair-plots-in-python-f228cf529166).
 
-![](https://cdn-images-1.medium.com/max/1200/1*XJMVGqu65uQZG1MnVk5QDg.png)![](https://cdn-images-1.medium.com/max/1200/1*gaQ1-4J9wwrXFv7Db4yjTQ.png)Correlation heatmap (left) and pairsplot colored by the value of the label (right).
+![](https://cdn-images-1.medium.com/max/1200/1*XJMVGqu65uQZG1MnVk5QDg.png)
+*Correlation heatmap* 
+
+![](https://cdn-images-1.medium.com/max/1200/1*gaQ1-4J9wwrXFv7Db4yjTQ.png)
+*Pairsplot colored by the value of the label (bottom).*
 
 One point we get from the exploration is the relationship between education and poverty: as the education of a household increases (both the average and the maximum), the severity of poverty tends to decreases (1 is most severe):
 
-![](https://cdn-images-1.medium.com/max/1600/1*fcXW9cRSFktt0KsvhByRTg.png)Max schooling of the house by target value.
+![](https://cdn-images-1.medium.com/max/1600/1*fcXW9cRSFktt0KsvhByRTg.png)
+*Max schooling of the house by target value.*
 
 On the other hand, as the level of overcrowding — the number of people per room — increases, the severity of the poverty increases:
 
-![](https://cdn-images-1.medium.com/max/1600/1*_8oSpApgJbEvPRPtzAPTGw.png)Household overcrowding by value of the target.
+![](https://cdn-images-1.medium.com/max/1600/1*_8oSpApgJbEvPRPtzAPTGw.png)
+*Household overcrowding by value of the target.*
 
 These are two actionable insights from this competition, even before we get to the machine learning: households with greater levels of education tend to have less severe poverty, and households with more people per room tend to have greater levels of poverty. I like to think about the ramifications and larger picture of a data science project in addition to the technical aspects. It can be easy to get overwhelmed with the details and then forget the overall reason you’re working on this problem.
 
@@ -226,7 +248,8 @@ These are two actionable insights from this competition, even before we get to t
 
 The following graph is one of my favorite results in machine learning: it displays the performance of machine learning models on many datasets, with the percentages showing how many times a particular method beat any others. (This is from a [highly readable paper](https://psb.stanford.edu/psb-online/proceedings/psb18/olson.pdf) by Randal Olson.)
 
-![](https://cdn-images-1.medium.com/max/1600/1*nSor0S8ctOjLoPSzRx2y9Q.png)Comparison of many algorithms on 165 datasets.
+![](https://cdn-images-1.medium.com/max/1600/1*nSor0S8ctOjLoPSzRx2y9Q.png)
+*Comparison of many algorithms on 165 datasets.*
 
 What this shows is that there are some problems where _even a simple Logistic Regression will beat a Random Forest or Gradient Boosting Machine_. Although the [Gradient Tree Boosting](https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/) model _generally_ works the best, it’s not a given that it will come out on top. Therefore, when we approach a new problem, the best practice is to try out several different algorithms rather than always relying on the same one. I’ve gotten stuck using the same model (random forest) before, but remember that no [one model is always the best](https://www.quora.com/What-does-the-No-Free-Lunch-theorem-mean-for-machine-learning-In-what-ways-do-popular-ML-algorithms-overcome-the-limitations-set-by-this-theorem).
 
@@ -238,7 +261,8 @@ In the notebook, we try out six models spanning the [range of complexity](https:
 
 To compare models, we calculate the [cross validation](https://www.openml.org/a/estimation-procedures/1) performance on the training data over 5 or 10 folds. We want to use the _training_ data because the _testing_ data is only meant to be used once as an estimate of the performance of our final model on new data. The following plot shows the model comparison. The height of the bar is the average Macro F1 score over the folds recorded by the model and the black bar is the standard deviation:
 
-![](https://cdn-images-1.medium.com/max/1600/1*Zp8zNs9q0PB-u87u8I_TIA.png)Model cross validation comparison results.
+![](https://cdn-images-1.medium.com/max/1600/1*Zp8zNs9q0PB-u87u8I_TIA.png)
+*Model cross validation comparison results.*
 
 (To see an explanation of the names, refer to the notebook. RF stands for Random Forest and GBM is Gradient Boosting Machine with SEL representing the feature set after feature selection). While this isn’t entirely a level comparison — I did not use the default hyperparameters for the Gradient Boosting Machine — the general results hold: the GBM is the best model by a large margin. This reflects the findings of most other data scientists.
 
@@ -250,7 +274,8 @@ Based on these results, we can choose the gradient boosting machine as our model
 
 Recognizing that not everyone has time for a 30-minute article (even on data science) in one sitting, I’ve broken this up into two parts. The [second part](https://medium.com/@williamkoehrsen/a-data-science-for-good-machine-learning-project-walk-through-in-python-part-two-2773bd52daf0) covers model optimization, interpretation, and an experimental section.
 
-![](https://cdn-images-1.medium.com/max/2000/1*a-AA2sr8Y5la5fgCIwXg1w.png)Decision tree visualization from part two.
+![](https://cdn-images-1.medium.com/max/2000/1*a-AA2sr8Y5la5fgCIwXg1w.png)
+*Decision tree visualization from part two.*
 
 ### Conclusions
 
@@ -259,5 +284,7 @@ By this point, we can see how all the different parts of [machine learning](http
 We’ve covered many techniques and have a decent model (although the F1 score is relatively low, it places in the top 50 models submitted to the competition). Nonetheless, we still have a few steps left: through optimization, we can improve our model, and then we have to interpret our results because no analysis is complete until [we’ve communicated our work](https://towardsdatascience.com/the-most-important-part-of-a-data-science-project-is-writing-a-blog-post-50715f37833a).
 
 As a next step, [see part two](https://medium.com/@williamkoehrsen/a-data-science-for-good-machine-learning-project-walk-through-in-python-part-two-2773bd52daf0), check out [the notebook](https://www.kaggle.com/willkoehrsen/a-complete-introduction-and-walkthrough) (also on [GitHub](https://github.com/WillKoehrsen/data-science-for-good/blob/master/costa-rican-poverty/A%20Complete%20Walkthrough.ipynb)), or get started [solving the problem for yourself](https://www.kaggle.com/c/costa-rican-household-poverty-prediction).
+
+*****
 
 As always, I welcome feedback, constructive criticism, and hearing about your data science projects. I can be reached on Twitter [@koehrsen_will](http://twitter.com/koehrsen_will).
