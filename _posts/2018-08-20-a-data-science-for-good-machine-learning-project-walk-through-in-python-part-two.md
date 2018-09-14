@@ -191,6 +191,8 @@ ICA | TSNE
 
 <p style="text-align: center;">Dimension Reduction Visualizations</p>
 
+<center>Dimension Reduction Visualizations</center>
+
 None of the methods cleanly separates the data based on the label which follows the [findings of other data scientists](https://www.kaggle.com/mlisovyi/cluster-analysis-tsne-mds-isomap). As we discovered earlier, it may be that this problem is difficult considering the data to which we have access. Although these graphs cannot be used to say whether or not we can solve a problem, if there is a clean separation, then it indicates that there is _something_ in the data that would allow a model to easily discern each class.
 
 As a final step, we can add the reduced features to the set of features after applying feature selection to see if they are useful for modeling. (Usually dimension reduction is applied and then the model is trained on just the reduced dimensions). The performance of every single model is shown below:
