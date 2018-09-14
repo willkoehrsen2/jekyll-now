@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: "A Data Science for Good Machine Learning Project Walk-Through in Python: Part\_One"
 ---
 ![](https://cdn-images-1.medium.com/max/2000/1*kXJHvMq_yced4cTeY43IRA.jpeg)
