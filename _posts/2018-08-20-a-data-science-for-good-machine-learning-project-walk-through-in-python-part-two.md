@@ -179,10 +179,6 @@ I wanted to try these methods for both dimension reduction for visualization, an
 The application of the other three methods is exactly the same (except TSNE which cannot be used to `transform` the testing data). After completing the transformations, we can visualize the reduced training features in 3 dimensions, with the points colored by the value of the target:
 
 
-Pickups            |  Dropoffs
-:-------------------------:|:-------------------------:
-![](https://cdn-images-1.medium.com/max/600/1*pAwxGw7veApg8GN60SoTbQ.png)  |  ![](https://cdn-images-1.medium.com/max/600/1*Vy8jl9Q83pmupOj2DIHAtw.png)
-
 UMAP | PCA
 :---:|:---:
 ![](https://cdn-images-1.medium.com/max/1200/1*F4F_vnQXiB5RjGNZUOWwug.png) |  ![](https://cdn-images-1.medium.com/max/1200/1*pkQg_N4T-ersZ86ePFt20g.png)
@@ -190,9 +186,8 @@ UMAP | PCA
 ICA | TSNE
 :---:|:---:
 ![](https://cdn-images-1.medium.com/max/1200/1*sD7QHjfrefVTduqvYKMM9Q.png) |  ![](https://cdn-images-1.medium.com/max/1200/1*Fv9oDnsirOMJIUPdXZ8Ecw.png) 
-<p style="text-align: center;">*Dimension Reduction Visualizations*</p>
 
-text {style=text-align:center}
+<p style="text-align: center;">Dimension Reduction Visualizations</p>
 
 None of the methods cleanly separates the data based on the label which follows the [findings of other data scientists](https://www.kaggle.com/mlisovyi/cluster-analysis-tsne-mds-isomap). As we discovered earlier, it may be that this problem is difficult considering the data to which we have access. Although these graphs cannot be used to say whether or not we can solve a problem, if there is a clean separation, then it indicates that there is _something_ in the data that would allow a model to easily discern each class.
 
