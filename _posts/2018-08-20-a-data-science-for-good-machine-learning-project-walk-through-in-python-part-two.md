@@ -1,8 +1,9 @@
-* * *
-
-![](https://cdn-images-1.medium.com/max/2000/1*nGFXkodXfbOtPr5LspUgGw.jpeg)([Source](https://github.com/dconnolly/chromecast-backgrounds))
-
-# A “Data Science for Good” Machine Learning Project Walk-Through in Python: Part Two
+---
+published: false
+title: "A “Data Science for Good” Machine Learning Project Walk-Through in Python: Part\_Two"
+---
+![](https://cdn-images-1.medium.com/max/2000/1*nGFXkodXfbOtPr5LspUgGw.jpeg)
+*([Source](https://github.com/dconnolly/chromecast-backgrounds))*
 
 ## Getting the most from our model, figuring out what it all means, and experimenting with new techniques
 
@@ -10,7 +11,8 @@ Machine learning is a powerful framework that from the outside may look complex 
 
 In the [first half of this series](https://medium.com/@williamkoehrsen/a-data-science-for-good-machine-learning-project-walk-through-in-python-part-one-1977dd701dbc), we saw how we could implement a solution to a “data science for good” machine learning problem, leaving off after we had selected the Gradient Boosting Machine as our model of choice.
 
-![](https://cdn-images-1.medium.com/max/1600/1*BXVD2yS94lnjah--tRKslg.png)Model evaluation results from part one.
+![](https://cdn-images-1.medium.com/max/1600/1*BXVD2yS94lnjah--tRKslg.png)
+*Model evaluation results from part one.*
 
 In this article, we’ll continue with our pipeline for predicting poverty in Costa Rica, performing model optimizing, interpreting the model, and trying out some experimental techniques.
 
@@ -42,13 +44,15 @@ The basic idea of [Bayesian Optimization](https://towardsdatascience.com/shallow
 
 See the notebook for the complete implementation, but below are the optimization scores plotted over 100 search iterations.
 
-![](https://cdn-images-1.medium.com/max/1600/1*k0kRU_p8JLD7c95htB_3dA.png)Model optimization scores versus iteration.
+![](https://cdn-images-1.medium.com/max/1600/1*k0kRU_p8JLD7c95htB_3dA.png)
+*Model optimization scores versus iteration.*
 
 Unlike in random search where the scores are, well random over time, in Bayesian Optimization, the scores tend to _improve_ over time as the algorithm learns a probability model of the best hyperparameters. The idea of Bayesian Optimization is that we can optimize our model (or any function) quicker by _focusing the search_ on promising settings. Once the optimization has finished running, we can use the best hyperparameters to cross validate the model.
 
 Optimizing the model will not always improve our test score because we are optimizing for the _training_ data. However, sometimes it can deliver a large benefit compared to the default hyperparameters. In this case, the final cross validation results are shown below in dataframe form:
 
-![](https://cdn-images-1.medium.com/max/1600/1*yRN0nxug_I-ne-oF3widAg.png)Cross validation results. Models without 10Fold in name were validated with 5 folds. SEL is selected features.
+![](https://cdn-images-1.medium.com/max/1600/1*yRN0nxug_I-ne-oF3widAg.png)
+*Cross validation results. Models without 10Fold in name were validated with 5 folds. SEL is selected features.*
 
 The optimized model (denoted by OPT and using 10 cross validation folds with the features after selection) places right in the middle of the non-optimized variations of the Gradient Boosting Machine (which used hyperparameters I had found worked well for previous problems.) This indicates we haven’t found the optimal hyperparameters yet, or there could be multiple sets of hyperparameters that performly roughly the same.
 
@@ -74,13 +78,15 @@ In the midst of writing all the machine learning code, it can be easy to lose si
 
 To try and get a sense of our model’s output, we can examine the prediction of poverty levels on a household basis for the test data. For the test data, we don’t know the true answers, but we can compare the relative frequency of each predicted class with that in the training labels. The image below shows the training distribution of poverty on the left, and the predicted distribution for the testing data on the right:
 
-![](https://cdn-images-1.medium.com/max/1600/1*wIxYpYGSRLCPf_ucoF4Sxw.png)Training label distribution (left) and predicted test distribution (right). Both histograms are normalized.
+![](https://cdn-images-1.medium.com/max/1600/1*wIxYpYGSRLCPf_ucoF4Sxw.png)
+*Training label distribution (left) and predicted test distribution (right). Both histograms are normalized.*
 
 Intriguingly, even though the label “not vulnerable” is most prevalent in the training data, it is represented _less often on a relative basis_ for the predictions. Our model predicts a higher proportion of the other 3 classes, which means that it thinks there is _more severe poverty_ in the testing data. If we convert these fractions to numbers, we have 3929 households in the “non vulnerable” category and 771 households in the “extreme” category.
 
 Another way to look at the predictions is by the confidence of the model. For each prediction on the test data, we can see not only the label, but also the probability given to it by the model. Let’s take a look at the confidence by the value of the label in a boxplot.
 
-![](https://cdn-images-1.medium.com/max/1600/1*pwp-Gb8c9gLnqLJ4g6RI_A.png)Boxplot of probability assigned to each label on testing data.
+![](https://cdn-images-1.medium.com/max/1600/1*pwp-Gb8c9gLnqLJ4g6RI_A.png)
+*Boxplot of probability assigned to each label on testing data.*
 
 These results are fairly intuitive — our model is most confident in the most extreme predictions — and less confident in the moderate ones. Theoretically, there should be more separation between the most extreme labels and the targets in the middle should be more difficult to tease apart.
 
@@ -92,11 +98,13 @@ Ideally, these predictions, or those from the winning model in the competition, 
 
 In a tree-based model — such as the Gradient Boosting Machine — the feature importances represent the [sum total reduction in gini impurity for nodes split](http://danielhomola.com/wp-content/uploads/2018/03/DanielHomola_PhdThesis_final.pdf) on a feature. I never find the absolute values very helpful, but instead normalize the numbers and look at them on a relative basis. For example, below are the 10 most important features from the optimized GBM model.
 
-![](https://cdn-images-1.medium.com/max/1600/1*Vvz_s7gfKflLs6Pe26g_XA.png)Most important features from optimized gradient boosting machine.
+![](https://cdn-images-1.medium.com/max/1600/1*Vvz_s7gfKflLs6Pe26g_XA.png)
+*Most important features from optimized gradient boosting machine.*
 
 Here we can see education and ages of family members making up the bulk of the most important features. Looking further into the importances, we also see the size of the family. This echoes findings by poverty researchers: [family size is correlated to more extreme poverty](https://poverty.ucdavis.edu/faq/how-does-family-structure-relate-poverty), and [education level is _inversely_ correlated with poverty](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.201.8131&rep=rep1&type=pdf#page=14). In both cases, we don’t necessarily know which causes which, but we can use this information to highlight which factors should be further studied. Hopefully, this data can then be used to further reduce poverty (which has been decreasing steadily for the last 25 years).
 
-![](https://cdn-images-1.medium.com/max/1600/1*FXntO8qIbzoyMrG_jRcUvQ.png)It’s true: the world is better now than ever and still improving ([source](https://ourworldindata.org/extreme-poverty)).
+![](https://cdn-images-1.medium.com/max/1600/1*FXntO8qIbzoyMrG_jRcUvQ.png)
+*It’s true: the world is better now than ever and still improving ([source](https://ourworldindata.org/extreme-poverty)).*
 
 In addition to potentially helping researchers, we can use the feature importances for further feature engineering by trying to build more features on top of these. An example using the above results would be taking the `meaneduc` and dividing by the `dependency` to create a new feature. While this may not be intuitive, it’s hard to tell ahead of time what will work for a model.
 
@@ -104,7 +112,8 @@ In addition to potentially helping researchers, we can use the feature importanc
 
 An alternative method to using the testing data to examine our model is to split the training data into a _smaller training set and a validation set_. Because we have the labels for all the training data, we can compare our predictions on the holdout validation data to the true values. For example, using 1000 observations for validation, we get the following [confusion matrix](https://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/):
 
-![](https://cdn-images-1.medium.com/max/1600/1*vo9ZJOlciAths-4irVaJnw.png)Confusion matrix on validation data.
+![](https://cdn-images-1.medium.com/max/1600/1*vo9ZJOlciAths-4irVaJnw.png)
+*Confusion matrix on validation data.*
 
 The values on the diagonal are those the model _predicted correctly_ because the predicted label is the same as the true label. Anything off the diagonal the model _predicted incorrectly_. We can see that our model is the best at identifying the non-vulnerable households, but is not very good at discerning the other labels.
 
@@ -116,7 +125,8 @@ One recommendation for the host organization — the Inter-American Developm
 
 There are other methods we can use for model understanding, such as [Local Interpretable Model-agnostic Explainer (LIME)](https://homes.cs.washington.edu/~marcotcr/blog/lime/), which uses a simpler linear model to approximate the model around a prediction. We can also look at individual decision trees in a forest which are typically straightforward to parse because they essentially mimic a human decision making process.
 
-![](https://cdn-images-1.medium.com/max/2000/1*feyQMKzSFpbGXSGxERsjVg.png)Individual Decision Tree in Random Forest.
+![](https://cdn-images-1.medium.com/max/2000/1*feyQMKzSFpbGXSGxERsjVg.png)
+*Individual Decision Tree in Random Forest.*
 
 > Overall, machine learning still suffers from an explainability gap, which hinders its applicability: people want not only accurate predictions, but an understanding of how those predictions were generated.
 
@@ -137,11 +147,14 @@ Recursive feature elimination is a method for feature selection that uses a mode
 
 Recursive feature elimination is simple to use with [Scikit-Learn’s RFECV method](http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFECV.html). This method builds on an estimator (a model) and then is `fit` like any other Scikit-Learn method. The `scorer` part is required in order to [make a custom scoring metric](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html) using the Macro F1 score.
 
-<iframe width="700" height="250" src="/media/d303f469268214c0b060215d28f6f07d?postId=2773bd52daf0" data-media-id="d303f469268214c0b060215d28f6f07d" allowfullscreen="" frameborder="0"></iframe>Recursive Feature Elimination code.
+<script src="https://gist.github.com/WillKoehrsen/27d12fba73d729cd3c50b20442925087.js" charset="utf-8">
+</script>
+*Recursive Feature Elimination code.*
 
 While I’ve used feature importances for selection before, I’d never implemented the Recursive Feature Elimination method, and as usual, was pleasantly surprised at how easy this was to do in Python. The RFECV method selected 58 out of around 190 features based on the cross validation scores:
 
-![](https://cdn-images-1.medium.com/max/1600/1*370HF-f5v0BcbaXQXulCXQ.png)Recursive Feature Elimination Scores.
+![](https://cdn-images-1.medium.com/max/1600/1*370HF-f5v0BcbaXQXulCXQ.png)
+*Recursive Feature Elimination Scores.*
 
 The selected set of features were then tried out to compare the cross validation performance with the original set of features. (The final results are presented after the next section). Given the ease of using this method, I think it’s a good tool to have in your skill set for modeling. Like any other Scikit-Learn operation, it can [fit into a](http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html) `[Pipeline](http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html)`, allowing you to quickly execute a complete series of preprocessing and modeling operations.
 
@@ -160,17 +173,20 @@ A new entry on the dimension reduction scene is [UMAP: Uniform Manifold Approxim
 
 I wanted to try these methods for both dimension reduction for visualization, and to add the reduced components as _additional features._ While this use case might not be typical, there’s no harm in experimenting! Below shows the code for using UMAP to create embeddings of both the train and testing data.
 
-<iframe width="700" height="250" src="/media/225083dc5e8a1cdfdaffe795917f561d?postId=2773bd52daf0" data-media-id="225083dc5e8a1cdfdaffe795917f561d" allowfullscreen="" frameborder="0"></iframe>Uniform Manifold Approximation and Embedding Code.
+<script src="https://gist.github.com/WillKoehrsen/3a10f1e28562f055fe05194afd89dc6a.js" charset="utf-8">
+</script>*Uniform Manifold Approximation and Embedding Code.*
 
 The application of the other three methods is exactly the same (except TSNE which cannot be used to `transform` the testing data). After completing the transformations, we can visualize the reduced training features in 3 dimensions, with the points colored by the value of the target:
 
-![](https://cdn-images-1.medium.com/max/1200/1*F4F_vnQXiB5RjGNZUOWwug.png)![](https://cdn-images-1.medium.com/max/1200/1*pkQg_N4T-ersZ86ePFt20g.png)![](https://cdn-images-1.medium.com/max/1200/1*sD7QHjfrefVTduqvYKMM9Q.png)![](https://cdn-images-1.medium.com/max/1200/1*Fv9oDnsirOMJIUPdXZ8Ecw.png)Dimension Reduction Visualizations
+![](https://cdn-images-1.medium.com/max/1200/1*F4F_vnQXiB5RjGNZUOWwug.png)![](https://cdn-images-1.medium.com/max/1200/1*pkQg_N4T-ersZ86ePFt20g.png)![](https://cdn-images-1.medium.com/max/1200/1*sD7QHjfrefVTduqvYKMM9Q.png)![](https://cdn-images-1.medium.com/max/1200/1*Fv9oDnsirOMJIUPdXZ8Ecw.png)
+*Dimension Reduction Visualizations*
 
 None of the methods cleanly separates the data based on the label which follows the [findings of other data scientists](https://www.kaggle.com/mlisovyi/cluster-analysis-tsne-mds-isomap). As we discovered earlier, it may be that this problem is difficult considering the data to which we have access. Although these graphs cannot be used to say whether or not we can solve a problem, if there is a clean separation, then it indicates that there is _something_ in the data that would allow a model to easily discern each class.
 
 As a final step, we can add the reduced features to the set of features after applying feature selection to see if they are useful for modeling. (Usually dimension reduction is applied and then the model is trained on just the reduced dimensions). The performance of every single model is shown below:
 
-![](https://cdn-images-1.medium.com/max/1600/1*Vj_2JrEzblQz2DyKD2hjiw.png)FInal model comparison results.
+![](https://cdn-images-1.medium.com/max/1600/1*Vj_2JrEzblQz2DyKD2hjiw.png)
+*Final model comparison results.*
 
 The model using the dimension reduction features has the suffix DR while the number of folds following the GBM refers to the number of cross validation folds. Overall, we can see that the selected set of features (SEL) does slightly better, and adding in the dimension reduction features hurts the model performance! It’s difficult to conclude too much from these results given the large standard deviations, but we _can say_ that the Gradient Boosting Machine significantly outperforms all other models and the feature selection process improves the cross validation performance.
 
@@ -197,7 +213,8 @@ The great part about a Kaggle competition is you can read about many of these cu
 
 As one example of the ability of competitions to better machine learning methods, the [ImageNet Large Scale Visual Recognition Challenge](http://www.image-net.org/challenges/LSVRC/) led to significant improvements in convolutional neural networks.
 
-![](https://cdn-images-1.medium.com/max/1600/1*-9F-AvAeYLOP-O6GTGRzAw.png)[Imagenet Competitions](http://www.image-net.org/challenges/LSVRC/) have led to state-of-the-art convolutional neural networks.
+![](https://cdn-images-1.medium.com/max/1600/1*-9F-AvAeYLOP-O6GTGRzAw.png)
+*[Imagenet Competitions](http://www.image-net.org/challenges/LSVRC/) have led to state-of-the-art convolutional neural networks.*
 
 * * *
 
@@ -219,5 +236,7 @@ Our approach followed a sequence of processes (1–4 were in [part one](https://
 Finally, if after all that you still haven’t got your fill of data science, you can move on to exploratory techniques and learn something new!
 
 As with any process, you’ll only improve as you practice. Competitions are valuable for the opportunities they provide us to _employ and develop_ skills. Moveover, they encourage _discussion, innovation, and collaboration_, leading both to more capable individual data scientists and a better community. Through this data science project, we not only improve our skills, but also make an effort to improve outcomes for our fellow humans.
+
+*****
 
 As always, I welcome feedback, constructive criticism, and hearing about your data science projects. I can be reached on Twitter [@koehrsen_will](http://twitter.com/koehrsen_will).
