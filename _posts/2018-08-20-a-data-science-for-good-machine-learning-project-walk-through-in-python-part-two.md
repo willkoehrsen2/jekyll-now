@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: "A Data Science for Good Machine Learning Project Walk-Through in Python: Part\_Two"
 ---
 ![](https://cdn-images-1.medium.com/max/2000/1*nGFXkodXfbOtPr5LspUgGw.jpeg)
@@ -156,7 +156,7 @@ While I’ve used feature importances for selection before, I’d never implemen
 ![](https://cdn-images-1.medium.com/max/1600/1*370HF-f5v0BcbaXQXulCXQ.png)
 *Recursive Feature Elimination Scores.*
 
-The selected set of features were then tried out to compare the cross validation performance with the original set of features. (The final results are presented after the next section). Given the ease of using this method, I think it’s a good tool to have in your skill set for modeling. Like any other Scikit-Learn operation, it can [fit into a](http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html) `[Pipeline](http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html)`, allowing you to quickly execute a complete series of preprocessing and modeling operations.
+The selected set of features were then tried out to compare the cross validation performance with the original set of features. (The final results are presented after the next section). Given the ease of using this method, I think it’s a good tool to have in your skill set for modeling. Like any other Scikit-Learn operation, it can [fit into a](http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html) `Pipeline`, allowing you to quickly execute a complete series of preprocessing and modeling operations.
 
 * * *
 
