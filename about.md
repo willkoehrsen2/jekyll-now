@@ -19,7 +19,7 @@ Follow me at a variety of places around the web:
 * Kaggle: [Will Koehrsen](https://www.kaggle.com/willkoehrsen)
 * StackOverflow: [casewestern](https://stackoverflow.com/users/5755357/casewestern)
 
-*****
+<hr>
 
 ## Live Code
 
