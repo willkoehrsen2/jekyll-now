@@ -6,9 +6,11 @@ permalink: /projects/
 ---
 ## Data Science for Good: Costa Rica Poverty Prediction
 
-Pairsplot of Features            |  UMAP Embedding of Data
-:-------------------------:|:-------------------------:
-![](https://cdn-images-1.medium.com/max/540/1*gaQ1-4J9wwrXFv7Db4yjTQ.png)  |  ![](https://cdn-images-1.medium.com/max/540/1*F4F_vnQXiB5RjGNZUOWwug.png)
+![](https://cdn-images-1.medium.com/max/540/1*gaQ1-4J9wwrXFv7Db4yjTQ.png)
+*Pairsplot of Features*
+
+![](https://cdn-images-1.medium.com/max/540/1*F4F_vnQXiB5RjGNZUOWwug.png)
+*UMAP Embedding of Data*
 
 ### Summary
 
