@@ -7,6 +7,8 @@ published: true
 
 Data scientist at [Feature Labs](https://www.featurelabs.com/) in Boston, MA working on [automated feature engineering](https://towardsdatascience.com/automated-feature-engineering-in-python-99baf11cc219). Previously a member of the [EDIFES research team](https://arpa-e.energy.gov/?q=slick-sheet-project/virtual-building-energy-audits) at Case Western Reserve University developing a data science platform for virtual energy audits. Avid data science advocate and communicator on [Towards Data Science](http://medium.com/@williamkoehrsen/)
 
+*****
+
 ### More Information
 
 Follow me at a variety of places around the web:
@@ -17,6 +19,8 @@ Follow me at a variety of places around the web:
 * Kaggle: [Will Koehrsen](https://www.kaggle.com/willkoehrsen)
 * StackOverflow: [casewestern](https://stackoverflow.com/users/5755357/casewestern)
 
+*****
+
 ## Live Code
 
 Most about pages are pretty dull. To mix things up, I've included a live Python editor where you can edit and run code. Thanks to the incredible [repl.it](https://repl.it/) for making this possible.
@@ -25,6 +29,8 @@ Most about pages are pretty dull. To mix things up, I've included a live Python 
     <iframe src="https://repl.it/@WillKoehrsen/basicpython?lite=true">
     </iframe>
 </div>
+
+*****
 
 ### Contact me
 
