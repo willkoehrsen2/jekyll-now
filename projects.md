@@ -9,6 +9,8 @@ permalink: /projects/
 * Kaggle Notebooks can be run in the browser with no downloads required. GitHub notebooks are also provided
 * Feel free to get in touch about any of the projects. I'm always willing to discuss data science! 
 
+*****
+
 ## Data Science for Good: Costa Rica Poverty Prediction
 
 ![](https://cdn-images-1.medium.com/max/540/1*gaQ1-4J9wwrXFv7Db4yjTQ.png)
