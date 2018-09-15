@@ -71,7 +71,9 @@ h4 {
 }
 
 hr {
-  border-width: 2px
+    border-style: groove;
+    border-width: 2px;
+    border-color: beige;
 }
 
 p {
@@ -193,7 +195,7 @@ iframe {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 4px solid $lightGray;
+  border-bottom: 4px double #222;
 
   @include mobile {
     text-align: center;
@@ -287,7 +289,7 @@ nav {
 
 .posts > .post {
   padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
+  border-bottom: 3px solid #333;
 }
 
 .posts > .post:last-child {
