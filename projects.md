@@ -14,9 +14,6 @@ permalink: /projects/
 ![](https://cdn-images-1.medium.com/max/540/1*gaQ1-4J9wwrXFv7Db4yjTQ.png)
 *Pairsplot of Features*
 
-![](https://cdn-images-1.medium.com/max/540/1*F4F_vnQXiB5RjGNZUOWwug.png)
-*UMAP Embedding of Data*
-
 ### Summary
 
 In this complete data science for good machine learning project, I build a gradient boosting machine model to predict poverty levels in Costa Rica. I also experiment with several different methods including UMAP for dimensionality reduction, oversampling to deal with imbalanced classes, recursive feature elimination for feature selection, and automated feature engineering using Featuretools. It turns out the same techniques and skills that can be used to get people to click on more ads can also be used to improve outcomes for our fellow humans.
@@ -44,6 +41,9 @@ In this complete data science for good machine learning project, I build a gradi
 * Python
 * Tutorial / walkthrough
 * Gradient Boosting Machine
+
+![](https://cdn-images-1.medium.com/max/540/1*F4F_vnQXiB5RjGNZUOWwug.png)
+*UMAP Embedding of Data*
 
 *****
 
