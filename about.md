@@ -22,7 +22,7 @@ Follow me at a variety of places around the web:
 Most about pages are pretty dull. To mix things up, I've included a live Python editor where you can edit and run code. Thanks to the incredible [repl.it](https://repl.it/) for making this possible.
 
 <div class="video-container">
-    <iframe src="https://repl.it/@WillKoehrsen/basicpython">
+    <iframe src="https://repl.it/@WillKoehrsen/basicpython?lite=true">
     </iframe>
 </div>
 
