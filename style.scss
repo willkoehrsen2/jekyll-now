@@ -71,6 +71,7 @@ h4 {
 }
 
 hr {
+	margin-top: 12px;
     border-style: groove;
     border-width: 2px;
     border-color: beige;
@@ -79,7 +80,7 @@ hr {
 p {
   font-size: 16px;
   font-family: Arial;
-  margin: 8px 0;
+  margin: 10px 0;
 }
 
 a {
@@ -127,6 +128,7 @@ img {
   margin-right: auto;
 }
 
+# Center image captions
 img + em { 
     display: block; 
     text-align: center;
