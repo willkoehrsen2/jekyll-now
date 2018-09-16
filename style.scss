@@ -110,6 +110,14 @@ img {
   max-width: 100%;
 }
 
+# Image comments
+img + em { 
+    display: block; 
+    text-align: center;
+    font-size: .8rem;
+    color: light-grey;
+ }
+
 // Fixes images in popup boxes from Google Translate
 .gmnoprint img {
   max-width: none;
