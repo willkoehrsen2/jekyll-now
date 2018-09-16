@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ![](https://cdn-images-1.medium.com/max/2000/1*kXJHvMq_yced4cTeY43IRA.jpeg)
 *([Source](https://github.com/dconnolly/chromecast-backgrounds))*
@@ -289,4 +289,3 @@ As a next step, [see part two](https://medium.com/@williamkoehrsen/a-data-scienc
 *****
 
 As always, I welcome feedback, constructive criticism, and hearing about your data science projects. I can be reached on Twitter [@koehrsen_will](http://twitter.com/koehrsen_will).
-
