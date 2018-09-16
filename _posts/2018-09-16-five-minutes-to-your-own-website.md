@@ -1,6 +1,11 @@
+---
+published: true
+title: Five Minutes to Your Own Website
+---
 * * *
 
-![](https://cdn-images-1.medium.com/max/2000/1*iPY8nENYXcSoH-UmNP8_iw.jpeg)([Source](https://www.pexels.com/photo/landscape-blue-cloud-109678/))
+![](https://cdn-images-1.medium.com/max/2000/1*iPY8nENYXcSoH-UmNP8_iw.jpeg)
+([Source](https://www.pexels.com/photo/landscape-blue-cloud-109678/))
 
 # Five Minutes to Your Own Website
 
