@@ -1,6 +1,11 @@
+---
+published: false
+title: Untitled
+---
 * * *
 
-![](https://cdn-images-1.medium.com/max/2000/1*iPY8nENYXcSoH-UmNP8_iw.jpeg)([Source](https://www.pexels.com/photo/landscape-blue-cloud-109678/))
+![](https://cdn-images-1.medium.com/max/2000/1*iPY8nENYXcSoH-UmNP8_iw.jpeg)
+([Source](https://www.pexels.com/photo/landscape-blue-cloud-109678/))
 
 # Five Minutes to Your Own Website
 
@@ -26,7 +31,8 @@ You can follow this [guide on GitHub](https://guides.github.com/features/pages/)
 
 After forking, go into the repository settings under your account and change the name to `username.github.io`.
 
-![](https://cdn-images-1.medium.com/max/2000/1*emZR_cJKygTrcssJyRfakg.png)Fork the Jekyll Now repository and change the name to username.github.io
+![](https://cdn-images-1.medium.com/max/2000/1*emZR_cJKygTrcssJyRfakg.png)
+Fork the Jekyll Now repository and change the name to username.github.io
 
 Within a few minutes, you’ll be able to navigate to username.github.io in your browser and see your new website published on the web! It’s not really yours yet, but you can fix that in a few steps.
 
