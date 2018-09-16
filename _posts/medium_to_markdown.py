@@ -1,11 +1,10 @@
 import copy
-import subprocess
-
+import os
 if __name__ == "__main__":
-    post_url = input('Enter post url:')
+    post_url = input('Enter post url: ')
     # Title of post
     title = '-'.join(post_url.split('/')[-1].split('-')[:-1])
-    date = input('Enter date (as 2018-10-05):')
+    date = input('Enter date (as 2018-10-05): ')
     # Read in the template
     with open('medium-to-markdown.js', 'r') as f:
         template = f.readlines()
@@ -22,11 +21,10 @@ if __name__ == "__main__":
 
     # Directory for saving post
     # File is automatically correctly named
-    post_dir = f'_posts/{date}-{title}.md'
+    post_dir = f'{date}-{title}.md'
 
     # Run the new script
-    r = subprocess.call([f'node medium-to-markdown_mod.js >> {post_dir}'],
-                        shell=True)
+    r = os.system("node medium-to-markdown_mod.js >> %s" % post_dir)
 
     # If no errors, report save location
     if r == 0:
